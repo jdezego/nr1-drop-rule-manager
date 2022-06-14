@@ -16,9 +16,9 @@ npm -v
 
 ```bash
 nr1 nerdpack:clone -r https://github.com/jdezego/nr1-drop-rules.git
-cd nr1-account-maturity
+cd nr1-drop-rules
 npm install
-nr1 nerdpack:serve
+npm start
 ```
 
 1. Visit the onenr.io URL in the console output under Launchers: drop-rules-launcher
