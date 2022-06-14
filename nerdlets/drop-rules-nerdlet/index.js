@@ -1,5 +1,5 @@
 import React from "react"
-import { NerdGraphQuery, Spinner, BlockText, Button } from "nr1"
+import { NerdGraphQuery, Spinner, Button } from "nr1"
 
 export default class DropRules extends React.Component {
     render() {
@@ -53,6 +53,8 @@ export default class DropRules extends React.Component {
                                     <div>
                                         <p key={rule.nrql}>Rule: {rule.nrql}</p>
                                         <p key={rule.creator.email}>Creator: {rule.creator.email}</p>
+                                        <p>&nbsp;</p>
+                                        <p><Button type={Button.TYPE.DESTRUCTIVE}>Delete Drop Rule</Button></p>
                                         <p>&nbsp;</p>
                                     </div>
                                 )
