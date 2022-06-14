@@ -21,7 +21,7 @@ npm install
 npm start
 ```
 
-1. Visit the onenr.io URL in the console output under Launchers: drop-rules-launcher
+4. Visit the onenr.io URL in the console output under Launchers: drop-rules-launcher
 
 ## Deploying this Nerdpack
 
