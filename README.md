@@ -15,7 +15,7 @@ npm -v
 3. Clone this repository and run the code locally against your New Relic data:
 
 ```bash
-nr1 nerdpack:clone -r https://github.com/newrelic/nr1-account-maturity.git
+nr1 nerdpack:clone -r https://github.com/jdezego/nr1-drop-rules.git
 cd nr1-account-maturity
 npm install
 nr1 nerdpack:serve
