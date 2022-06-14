@@ -46,8 +46,6 @@ export default class DropRules extends React.Component {
                     }
 
                     return (
-                        // TODO:
-                        // Put a Delete button in front of each rule.
                         <div>
                             {data.actor.account.nrqlDropRules.list.rules.map((rule) => (
                                     <div>
