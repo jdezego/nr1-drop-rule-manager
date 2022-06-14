@@ -30,6 +30,11 @@ export default class DropRules extends React.Component {
 
         return (
             // Using this NerdGraphQuery component for testing. Not sure if it is suitable for this project.
+            // Thoughts: This component might be good for displaying query results, but what about
+            // creating/deleting drop rules? Will probably have to do that in separate functions using native
+            // modules. Request? Fetch? Will those functions be in this file or a separate file?
+            // I should probably get better with React.
+            // Nah.
             <NerdGraphQuery query={query}>
                 {({ loading, error, data }) => {
                     if (loading) {
