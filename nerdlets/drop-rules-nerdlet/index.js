@@ -1,42 +1,18 @@
 import React from "react"
 import { NerdGraphQuery, Spinner, Button, Form, TextField } from "nr1"
-import { CreateDropRule, DeleteDropRule } from './utils';
+import { CreateDropRule, DeleteDropRule, ListDropRules } from './utils';
 
 export default class DropRules extends React.Component {
     render() {
         // TODO:
         // Get account number of the logged in user. Hard coding now for test purposes.
         // Can we loop through all accounts the user has access to and show drop rules per account?
-        const id = 2342752
-
-        // This query returns an array of existing drop rules and some useful attributes.
-        const query = `{
-            actor {
-              account(id: ${id}) {
-                nrqlDropRules {
-                  list {
-                    rules {
-                      id
-                      nrql
-                      description
-                      creator {
-                        email
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }`
+        const accountId = 2342752
 
         return (
             // Using this NerdGraphQuery component for testing. Not sure if it is suitable for this project.
-            // Thoughts: This component might be good for displaying query results, but what about
-            // creating/deleting drop rules? Will probably have to do that in separate functions using native
-            // modules. Request? Fetch? Will those functions be in this file or a separate file?
-            // I should probably get better with React.
-            // Nah.
-            <NerdGraphQuery query={query}>
+            // Ultimately want to display rules in a NR React Table component.
+            <NerdGraphQuery query={ListDropRules(accountId)}>
                 {({ loading, error, data }) => {
                     if (loading) {
                         return <Spinner />
@@ -50,7 +26,7 @@ export default class DropRules extends React.Component {
                     if (data.actor.account.nrqlDropRules.list.rules.length == 0) {
                         return <h2>No rules found.</h2>
                     }
-                    
+
                     // TODO:
                     // Use NR React "Table" component to display rules.
                     // Include Table header action "Delete" to delete a rule instead of using Button.

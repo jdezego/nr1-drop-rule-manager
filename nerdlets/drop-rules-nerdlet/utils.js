@@ -1,4 +1,26 @@
 
+// List drop rules for accountId
+export function ListDropRules(accountId) {
+  const query = `{
+    actor {
+      account(id: ${accountId}) {
+        nrqlDropRules {
+          list {
+            rules {
+              id
+              nrql
+              description
+              creator {
+                email
+              }
+            }
+          }
+        }
+      }
+    }
+  }`
+  return query
+}
 
 // successes array length will be non-zero if the deletion is successful.
 // failures array will contain an error and description.
