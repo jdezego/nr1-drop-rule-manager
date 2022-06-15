@@ -24,9 +24,10 @@ export function ListDropRules(accountId) {
 
 // successes array length will be non-zero if the deletion is successful.
 // failures array will contain an error and description.
-export function DeleteDropRule(accountId, ruleId) {
+// Pass an array of comma separated ruleIds to delete if deleting more than one. 
+export function DeleteDropRule(accountId, ruleIds) {
     const query = `mutation {
-        nrqlDropRulesDelete(accountId: ${accountId}, ruleIds: "${ruleId}") {
+        nrqlDropRulesDelete(accountId: ${accountId}, ruleIds: [${ruleIds}]) {
           successes {
             id
           }
