@@ -50,7 +50,8 @@ export default class DropRules extends React.Component {
                     if (data.actor.account.nrqlDropRules.list.rules.length == 0) {
                         return "No rules found."
                     }
-
+                    // TODO:
+                    // Use NR React Table component to display rules.
                     return (
                       <>
                         <div>
