@@ -53,6 +53,7 @@ export default class DropRules extends React.Component {
                     // TODO:
                     // Use NR React "Table" component to display rules.
                     // Include Table header action "Delete" to delete a rule instead of using Button.
+                    // Reference: https://developer.newrelic.com/components/table
                     return (
                       <>
                         <div>
