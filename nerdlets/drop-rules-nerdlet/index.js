@@ -48,8 +48,9 @@ export default class DropRules extends React.Component {
 
                     // No rules found if length of rules array is zero.
                     if (data.actor.account.nrqlDropRules.list.rules.length == 0) {
-                        return "<h2>No rules found.</h2>"
+                        return <h2>No rules found.</h2>
                     }
+                    
                     // TODO:
                     // Use NR React "Table" component to display rules.
                     // Include Table header action "Delete" to delete a rule instead of using Button.
