@@ -58,6 +58,7 @@ export default class DropRules extends React.Component {
                                   <h2>
                                     <p>&nbsp;</p>
                                     <p key={rule.nrql}>Rule: {rule.nrql}</p>
+                                    <p key={rule.description}>Description: {rule.description}</p>
                                     <p key={rule.creator.email}>Creator: {rule.creator.email}</p>
                                     <p><Button type={Button.TYPE.DESTRUCTIVE}>Delete Drop Rule</Button></p>
                                   </h2>
