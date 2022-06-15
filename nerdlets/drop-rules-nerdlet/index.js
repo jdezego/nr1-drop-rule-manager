@@ -51,20 +51,25 @@ export default class DropRules extends React.Component {
                     }
 
                     return (
+                      <>
                         <div>
                             {data.actor.account.nrqlDropRules.list.rules.map((rule) => (
-                                    <div>
-                                      <h2>
-                                        <p>&nbsp;</p>
-                                        <p key={rule.nrql}>Rule: {rule.nrql}</p>
-                                        <p key={rule.creator.email}>Creator: {rule.creator.email}</p>
-                                        <p><Button type={Button.TYPE.DESTRUCTIVE}>Delete Drop Rule</Button></p>
-                                        <p>&nbsp;</p>
-                                      </h2>
-                                    </div>
+                                  <h2>
+                                    <p>&nbsp;</p>
+                                    <p key={rule.nrql}>Rule: {rule.nrql}</p>
+                                    <p key={rule.creator.email}>Creator: {rule.creator.email}</p>
+                                    <p><Button type={Button.TYPE.DESTRUCTIVE}>Delete Drop Rule</Button></p>
+                                  </h2>
                                 )
                             )}
                         </div>
+                        <div>
+                          <p>&nbsp;</p>
+                          <p>&nbsp;</p>
+                          <p>&nbsp;</p>
+                          create new rule here
+                        </div>
+                      </>
                     )
                 }}
             </NerdGraphQuery>
