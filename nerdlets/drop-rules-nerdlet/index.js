@@ -1,5 +1,5 @@
 import React from "react"
-import { NerdGraphQuery, Spinner, Button } from "nr1"
+import { NerdGraphQuery, Spinner, Button, Form, TextField } from "nr1"
 
 export default class DropRules extends React.Component {
     render() {
@@ -67,7 +67,12 @@ export default class DropRules extends React.Component {
                           <p>&nbsp;</p>
                           <p>&nbsp;</p>
                           <p>&nbsp;</p>
-                          create new rule here
+                          <h2>Create Drop Rule</h2>
+                          <Form>
+                            <TextField placeholder="" label="NRQL" />
+                            <TextField placeholder="" label="Description" />
+                            <Button type={Button.TYPE.PRIMARY}>Create Drop Rule</Button>
+                          </Form>
                         </div>
                       </>
                     )
