@@ -1,12 +1,25 @@
 import React from "react"
-import { NerdGraphQuery, Spinner, Button, Form, TextField } from "nr1"
-import { CreateDropRule, DeleteDropRule, ListDropRules } from './utils';
+import { NerdGraphQuery, Spinner, Button, Form, TextField, nerdlet } from "nr1"
+import { CreateDropRule, DeleteDropRule, ListDropRules, GetAccountId } from './utils';
 
 export default class DropRules extends React.Component {
+  componentDidMount() {
+    nerdlet.setConfig({
+        accountPicker: true,
+    })
+}
     render() {
+      // nerdlet.setConfig({
+      //   accountPicker: true,
+      // })
+
         // TODO:
         // Get account number of the logged in user. Hard coding now for test purposes.
         // Can we loop through all accounts the user has access to and show drop rules per account?
+        
+        // This gets the accountId from the dropdown but when I try to use it inside the <NerdGraphQuery> below,it doesn't work.
+        // const accountId = <GetAccountId />
+
         const accountId = 2342752
 
         return (

@@ -1,3 +1,14 @@
+import { PlatformStateContext } from "nr1"
+
+export function GetAccountId(props) {
+    return (
+        <PlatformStateContext.Consumer>
+            {(platformState) => {
+                return platformState.accountId
+            }}
+        </PlatformStateContext.Consumer>
+    )
+}
 
 // List drop rules for accountId
 export function ListDropRules(accountId) {
