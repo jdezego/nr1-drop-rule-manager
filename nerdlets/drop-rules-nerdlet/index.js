@@ -1,6 +1,6 @@
 import React from "react"
-import { NerdGraphQuery, Spinner, Button, Form, TextField, nerdlet } from "nr1"
-import { CreateDropRule, DeleteDropRule, ListDropRules, GetAccountId } from './utils';
+import { NerdGraphQuery, Spinner, Button, Form, TextField, nerdlet, PlatformStateContext } from "nr1"
+import { CreateDropRule, DeleteDropRule, ListDropRules } from './utils';
 
 export default class DropRules extends React.Component {
   componentDidMount() {
@@ -10,23 +10,12 @@ export default class DropRules extends React.Component {
     })
 }
     render() {
-      // nerdlet.setConfig({
-      //   accountPicker: true,
-      // })
-
-        // TODO:
-        // Get account number of the logged in user. Hard coding now for test purposes.
-        // Can we loop through all accounts the user has access to and show drop rules per account?
-        
-        // This gets the accountId from the dropdown but when I try to use it inside the <NerdGraphQuery> below,it doesn't work.
-        // const accountId = <GetAccountId />
-
-        const accountId = 2342752
-
         return (
-            // Using this NerdGraphQuery component for testing. Not sure if it is suitable for this project.
-            // Ultimately want to display rules in a NR React Table component.
-          <NerdGraphQuery query={ListDropRules(accountId)}>
+            <PlatformStateContext.Consumer>
+              {(platformState) => {
+  
+          return (
+          <NerdGraphQuery query={ListDropRules(platformState.accountId)}>
               {({ loading, error, data }) => {
                   if (loading) {
                       return <Spinner />
@@ -41,14 +30,9 @@ export default class DropRules extends React.Component {
                       return <h2>No rules found.</h2>
                   }
 
-                  // TODO:
-                  // Use NR React "Table" component to display rules.
-                  // Include Table header action "Delete" to delete a rule instead of using Button.
-                  // Reference: https://developer.newrelic.com/components/table
                   return (
                     <>
                       <div>
-                      <h3>accountId from dropdown: <GetAccountId /></h3>
                           {data.actor.account.nrqlDropRules.list.rules.map((rule) => (
                                 <h3>
                                   <p>&nbsp;</p>
@@ -75,6 +59,9 @@ export default class DropRules extends React.Component {
                   )
               }}
           </NerdGraphQuery>
+          )
+          }}
+          </PlatformStateContext.Consumer>
         )
     }
 }
