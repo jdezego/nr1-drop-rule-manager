@@ -48,6 +48,7 @@ export default class DropRules extends React.Component {
                     return (
                       <>
                         <div>
+                        <h3>accountId from dropdown: <GetAccountId /></h3>
                             {data.actor.account.nrqlDropRules.list.rules.map((rule) => (
                                   <h3>
                                     <p>&nbsp;</p>
