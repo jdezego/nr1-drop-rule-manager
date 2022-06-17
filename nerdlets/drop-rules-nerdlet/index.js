@@ -13,52 +13,54 @@ export default class DropRules extends React.Component {
         return (
             <PlatformStateContext.Consumer>
               {(platformState) => {
-  
+                
           return (
-          <NerdGraphQuery query={ListDropRules(platformState.accountId)}>
-              {({ loading, error, data }) => {
-                  if (loading) {
-                      return <Spinner />
-                  }
+            // currently not working. have to change arg passed to ListDropRules to actual account id,
+            // then change back to platformState.accountId while app is running.
+            <NerdGraphQuery query={ListDropRules(platformState.accountId)}>
+                {({ loading, error, data }) => {
+                    if (loading) {
+                        return <Spinner />
+                    }
 
-                  if (error) {
-                      return "Error!"
-                  }
+                    if (error) {
+                        return "Error!"
+                    }
 
-                  // No rules found if length of rules array is zero.
-                  if (data.actor.account.nrqlDropRules.list.rules.length == 0) {
-                      return <h2>No rules found.</h2>
-                  }
+                    // No rules found if length of rules array is zero.
+                    if (data.actor.account.nrqlDropRules.list.rules.length == 0) {
+                        return <h2>No rules found.</h2>
+                    }
 
-                  return (
-                    <>
-                      <div>
-                          {data.actor.account.nrqlDropRules.list.rules.map((rule) => (
-                                <h3>
-                                  <p>&nbsp;</p>
-                                  <p key={rule.nrql}>Rule: {rule.nrql}</p>
-                                  <p key={rule.description}>Description: {rule.description}</p>
-                                  <p key={rule.creator.email}>Creator: {rule.creator.email}</p>
-                                  <p><Button type={Button.TYPE.DESTRUCTIVE}>Delete Drop Rule</Button></p>
-                                </h3>
-                              )
-                          )}
-                      </div>
-                      <div>
-                        <p>&nbsp;</p>
-                        <p>&nbsp;</p>
-                        <p>&nbsp;</p>
-                        <h2>Create Drop Rule</h2>
-                        <Form>
-                          <TextField placeholder="" label="NRQL" />
-                          <TextField placeholder="" label="Description" />
-                          <Button type={Button.TYPE.PRIMARY}>Create Drop Rule</Button>
-                        </Form>
-                      </div>
-                    </>
-                  )
-              }}
-          </NerdGraphQuery>
+                    return (
+                      <>
+                        <div>
+                            {data.actor.account.nrqlDropRules.list.rules.map((rule) => (
+                                  <h3>
+                                    <p>&nbsp;</p>
+                                    <p key={rule.nrql}>Rule: {rule.nrql}</p>
+                                    <p key={rule.description}>Description: {rule.description}</p>
+                                    <p key={rule.creator.email}>Creator: {rule.creator.email}</p>
+                                    <p><Button type={Button.TYPE.DESTRUCTIVE}>Delete Drop Rule</Button></p>
+                                  </h3>
+                                )
+                            )}
+                        </div>
+                        <div>
+                          <p>&nbsp;</p>
+                          <p>&nbsp;</p>
+                          <p>&nbsp;</p>
+                          <h2>Create Drop Rule</h2>
+                          <Form>
+                            <TextField placeholder="" label="NRQL" />
+                            <TextField placeholder="" label="Description" />
+                            <Button type={Button.TYPE.PRIMARY}>Create Drop Rule</Button>
+                          </Form>
+                        </div>
+                      </>
+                    )
+                }}
+            </NerdGraphQuery>
           )
           }}
           </PlatformStateContext.Consumer>
