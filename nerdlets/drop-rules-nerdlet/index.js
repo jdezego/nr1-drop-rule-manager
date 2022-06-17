@@ -6,6 +6,7 @@ export default class DropRules extends React.Component {
   componentDidMount() {
     nerdlet.setConfig({
         accountPicker: true,
+        timePicker: false
     })
 }
     render() {
