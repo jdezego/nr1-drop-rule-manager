@@ -12,6 +12,10 @@
 
 // List drop rules for accountId
 export function ListDropRules(accountId) {
+  if (accountId == "cross-account") {
+    accountId = 1
+  }
+  
   const query = `{
     actor {
       account(id: ${accountId}) {
