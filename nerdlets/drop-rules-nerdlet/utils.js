@@ -12,7 +12,7 @@
 
 // List drop rules for accountId
 export function ListDropRules(accountId) {
-  if (accountId == "cross-account") {
+  if (isNaN(accountId)) {
     accountId = 1
   }
   
