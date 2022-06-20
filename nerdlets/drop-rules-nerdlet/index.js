@@ -15,8 +15,7 @@ export default class DropRules extends React.Component {
               {(platformState) => {
                 
           return (
-            // currently not working. have to change arg passed to ListDropRules to actual account id,
-            // then change back to platformState.accountId while app is running.
+            // currently not working. if account picker isnt ready accountId = "cross-account"
             <NerdGraphQuery query={ListDropRules(platformState.accountId)}>
                 {({ loading, error, data }) => {
                     if (loading) {
@@ -24,7 +23,7 @@ export default class DropRules extends React.Component {
                     }
 
                     if (error) {
-                        return "Choose an account from the drop-down menu."
+                        return "Error!"
                     }
 
                     // No rules found if length of rules array is zero.

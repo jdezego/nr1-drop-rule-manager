@@ -1,21 +1,5 @@
-//import { PlatformStateContext } from "nr1"
-
-// export function GetAccountId(props) {
-//     return (
-//         <PlatformStateContext.Consumer>
-//             {(platformState) => {
-//                 return platformState.accountId
-//             }}
-//         </PlatformStateContext.Consumer>
-//     )
-// }
-
 // List drop rules for accountId
-export function ListDropRules(accountId) {
-  if (isNaN(accountId)) {
-    accountId = 1
-  }
-  
+export function ListDropRules(accountId) {  
   const query = `{
     actor {
       account(id: ${accountId}) {
