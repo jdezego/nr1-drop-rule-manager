@@ -22,7 +22,7 @@ export default class DropRules extends React.Component {
                                     }
 
                                     if (error) {
-                                        return <h2>"Error! Choose an account from the drop-down list."</h2>
+                                        return <h2>"Choose an account from the drop-down list."</h2>
                                     }
 
                                     // No rules found if length of rules array is zero.
