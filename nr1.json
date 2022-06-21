@@ -1,6 +1,6 @@
 {
-    "schemaType": "NERDPACK",
-    "id": "f460d75b-a247-4357-b11e-6a445ac90a61",
-    "displayName": "Drop Rules",
-    "description": "Allows you to view/create/delete drop rules."
+  "schemaType": "NERDPACK",
+  "id": "1f3dc838-02f7-42b5-810b-a58301528119",
+  "displayName": "Drop Rules",
+  "description": "Allows you to view/create/delete drop rules."
 }

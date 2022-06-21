@@ -3,5 +3,5 @@
   "id": "drop-rules-launcher",
   "displayName": "Drop Rules",
   "description": "Allows you to view/create/delete drop rules.",
-  "rootNerdletId": "f460d75b-a247-4357-b11e-6a445ac90a61.drop-rules-nerdlet"
+  "rootNerdletId": "drop-rules-nerdlet"
 }
