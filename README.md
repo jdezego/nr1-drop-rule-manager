@@ -17,6 +17,7 @@ npm -v
 nr1 nerdpack:clone -r https://github.com/jdezego/nr1-drop-rules.git
 cd nr1-drop-rules
 npm install
+nr1 nerdpack:uuid -gf
 npm start
 ```
 
@@ -27,11 +28,5 @@ npm start
 Open a command prompt in the nerdpack's directory and run the following commands.
 
 ```bash
-# To create a new uuid for the nerdpack so that you can deploy it to your account:
-nr1 nerdpack:uuid -g [--profile=your_profile_name]
-
-# To see a list of APIkeys / profiles available in your development environment:
-# nr1 profiles:list
-nr1 nerdpack:publish [--profile=your_profile_name]
-nr1 nerdpack:deploy [-c [DEV|BETA|STABLE]] [--profile=your_profile_name]
-nr1 nerdpack:subscribe [-c [DEV|BETA|STABLE]] [--profile=your_profile_name]
+nr1 nerdpack:publish
+nr1 subscription:set
