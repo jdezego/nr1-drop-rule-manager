@@ -11,10 +11,9 @@ npm -v
 
 2. Install the [New Relic One CLI](https://one.newrelic.com/launcher/developer-center.launcher). Follow the instructions to set up your New Relic development environment.
 
-3. Clone this repository and run the code locally against your New Relic data:
+3. Clone this repository and then:
 
 ```bash
-nr1 nerdpack:clone -r https://github.com/jdezego/nr1-drop-rules.git
 cd nr1-drop-rules
 npm install
 nr1 nerdpack:uuid -gf
