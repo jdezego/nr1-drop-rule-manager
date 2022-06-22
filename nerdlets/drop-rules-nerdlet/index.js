@@ -1,5 +1,5 @@
 import React from "react"
-import { NerdGraphQuery, Spinner, Button, Form, TextField, nerdlet, PlatformStateContext } from "nr1"
+import { NerdGraphQuery, Spinner, Button, Form, TextField, nerdlet, PlatformStateContext, Table, TableHeader, TableHeaderCell, TableRow, TableRowCell } from "nr1"
 import { CreateDropRule, DeleteDropRule, ListDropRules } from "./utils"
 
 export default class DropRules extends React.Component {
@@ -9,6 +9,19 @@ export default class DropRules extends React.Component {
             timePicker: false,
         })
     }
+
+    getActions() {
+        return [
+            {
+                label: 'Delete Drop Rule',
+                type: TableRow.ACTION_TYPE.DESTRUCTIVE,
+                onClick: (evt, { item, index }) => {
+                    alert(`Delete Drop Rule: ${item.id}`);
+                }
+            }
+        ]
+    }
+
     render() {
         return (
             <PlatformStateContext.Consumer>
@@ -20,7 +33,7 @@ export default class DropRules extends React.Component {
                                     if (loading) {
                                         return <Spinner />
                                     }
-
+                                    
                                     if (error) {
                                         return <h2>"Choose an account from the drop-down list."</h2>
                                     }
@@ -30,31 +43,36 @@ export default class DropRules extends React.Component {
                                         return <h2>No rules found.</h2>
                                     }
 
+                                    let rules = data.actor.account.nrqlDropRules.list.rules.map(rule => ({
+                                        id: rule.id,
+                                        Rule: rule.nrql,
+                                        Description: rule.description,
+                                        Creator: rule.creator.email
+                                    }))
+
                                     return (
                                         <>
-                                            <div>
-                                                {data.actor.account.nrqlDropRules.list.rules.map((rule) => (
-                                                        <h3>
-                                                            <p>&nbsp;</p>
-                                                            <p key={rule.nrql}>Rule: {rule.nrql}</p>
-                                                            <p key={rule.descriptio}>Description: {rule.description}</p>
-                                                            <p key={rule.creator.email}>Creator: {rule.creator.email}</p>
-                                                            <p><Button type={Button.TYPE.DESTRUCTIVE}>Delete Drop Rule</Button></p>
-                                                        </h3>
-                                                    )
+                                            <Table items={rules}>
+                                                <TableHeader>
+                                                    <TableHeaderCell value={({ item }) => item.Rule}>
+                                                        Rule
+                                                    </TableHeaderCell>
+                                                    <TableHeaderCell value={({ item }) => item.Description}>
+                                                        Description
+                                                    </TableHeaderCell>
+                                                    <TableHeaderCell value={({ item }) => item.Creator}>
+                                                        Creator
+                                                    </TableHeaderCell>
+                                                </TableHeader>
+
+                                                {({ item }) => (
+                                                <TableRow actions={this.getActions()}>
+                                                    <TableRowCell>{item.Rule}</TableRowCell>
+                                                    <TableRowCell>{item.Description}</TableRowCell>
+                                                    <TableRowCell>{item.Creator}</TableRowCell>
+                                                </TableRow>
                                                 )}
-                                            </div>
-                                            <div>
-                                                <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
-                                                <h2>Create Drop Rule</h2>
-                                                <Form>
-                                                    <TextField placeholder="" label="NRQL" />
-                                                    <TextField placeholder="" label="Description" />
-                                                    <Button type={Button.TYPE.PRIMARY}>Create Drop Rule</Button>
-                                                </Form>
-                                            </div>
+                                            </Table>
                                         </>
                                     )
                                 }}
