@@ -3,6 +3,13 @@ import { NerdGraphQuery, Spinner, Button, Form, TextField, nerdlet, PlatformStat
 import { CreateDropRule, DeleteDropRule, ListDropRules } from "./utils"
 
 export default class DropRules extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            nrql: "",
+            description: ""
+        }
+    }
 
     componentDidMount() {
         nerdlet.setConfig({
@@ -81,9 +88,9 @@ export default class DropRules extends React.Component {
                                             <h3>Create Drop Rule</h3>
                                             <p>&nbsp;</p>
                                             <Form>
-                                                <TextField label="NRQL" />
-                                                <TextField label="Description" />
-                                                <Button type={Button.TYPE.PRIMARY}>Create Drop Rule</Button>
+                                                <TextField label="NRQL" onChange={event => {this.setState({ nrql: event.target.value })}} />
+                                                <TextField label="Description" onChange={event => {this.setState({ description: event.target.value })}} />
+                                                <Button type={Button.TYPE.PRIMARY} onClick={() => alert(this.state.nrql + '\n' + this.state.description)}>Create Drop Rule</Button>
                                             </Form>
                                         </>
                                     )
