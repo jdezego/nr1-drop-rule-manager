@@ -3,6 +3,7 @@ import { NerdGraphQuery, Spinner, Button, Form, TextField, nerdlet, PlatformStat
 import { CreateDropRule, DeleteDropRule, ListDropRules } from "./utils"
 
 export default class DropRules extends React.Component {
+
     componentDidMount() {
         nerdlet.setConfig({
             accountPicker: true,
@@ -10,13 +11,13 @@ export default class DropRules extends React.Component {
         })
     }
 
-    getActions() {
+    getActions(refetch, accountId) {
         return [
             {
                 label: 'Delete Drop Rule',
                 type: TableRow.ACTION_TYPE.DESTRUCTIVE,
                 onClick: (evt, { item, index }) => {
-                    alert(`Delete Drop Rule: ${item.id}`);
+                    DeleteDropRule(accountId, item.id).then(refetch);
                 }
             }
         ]
@@ -29,7 +30,7 @@ export default class DropRules extends React.Component {
                     if (platformState && !isNaN(platformState.accountId)) {
                         return (
                             <NerdGraphQuery query={ListDropRules(platformState.accountId)}>
-                                {({ loading, error, data }) => {
+                                {({ loading, error, data, refetch }) => {
                                     if (loading) {
                                         return <Spinner />
                                     }
@@ -66,7 +67,7 @@ export default class DropRules extends React.Component {
                                                 </TableHeader>
 
                                                 {({ item }) => (
-                                                <TableRow actions={this.getActions()}>
+                                                <TableRow actions={this.getActions(refetch, platformState.accountId)}>
                                                     <TableRowCell>{item.Rule}</TableRowCell>
                                                     <TableRowCell>{item.Description}</TableRowCell>
                                                     <TableRowCell>{item.Creator}</TableRowCell>

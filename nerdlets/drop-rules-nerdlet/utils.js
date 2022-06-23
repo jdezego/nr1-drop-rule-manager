@@ -1,3 +1,5 @@
+import { NerdGraphMutation } from 'nr1'
+
 // List drop rules for accountId
 export function ListDropRules(accountId) {  
   const query = `{
@@ -20,10 +22,7 @@ export function ListDropRules(accountId) {
   }`
   return query
 }
-
-// successes array length will be non-zero if the deletion is successful.
-// failures array will contain an error and description.
-// Pass an array of comma separated ruleIds to delete if deleting more than one. 
+ 
 export function DeleteDropRule(accountId, ruleIds) {
     const query = `mutation {
         nrqlDropRulesDelete(accountId: ${accountId}, ruleIds: [${ruleIds}]) {
@@ -37,6 +36,8 @@ export function DeleteDropRule(accountId, ruleIds) {
           }
         }
       }`
+      // This returns a promise, so we can .then(refetch) on the click action when we call the delete.
+      return NerdGraphMutation.mutate({mutation: query})
 }
 
 // successes array will contain the ID of the newly created rule if successful.
