@@ -1,6 +1,5 @@
 import { NerdGraphMutation } from 'nr1'
 
-// List drop rules for accountId
 export function ListDropRules(accountId) {  
   const query = `{
     actor {
@@ -55,4 +54,5 @@ export function CreateDropRule(accountId, description, NRQL) {
           }
         }
       }`
+      return NerdGraphMutation.mutate({mutation: query})
 }

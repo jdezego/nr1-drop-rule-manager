@@ -11,7 +11,7 @@ export default class DropRules extends React.Component {
         })
     }
 
-    getActions(refetch, accountId) {
+    tableClickActions(refetch, accountId) {
         return [
             {
                 label: 'Delete Drop Rule',
@@ -36,7 +36,7 @@ export default class DropRules extends React.Component {
                                     }
                                     
                                     if (error) {
-                                        return <h2>"Choose an account from the drop-down list."</h2>
+                                        return <h2>Choose an account from the drop-down list.</h2>
                                     }
 
                                     // No rules found if length of rules array is zero.
@@ -67,13 +67,24 @@ export default class DropRules extends React.Component {
                                                 </TableHeader>
 
                                                 {({ item }) => (
-                                                <TableRow actions={this.getActions(refetch, platformState.accountId)}>
+                                                <TableRow actions={this.tableClickActions(refetch, platformState.accountId)}>
                                                     <TableRowCell>{item.Rule}</TableRowCell>
                                                     <TableRowCell>{item.Description}</TableRowCell>
                                                     <TableRowCell>{item.Creator}</TableRowCell>
                                                 </TableRow>
                                                 )}
                                             </Table>
+                                            <p>&nbsp;</p>
+                                            <hr />
+                                            <p>&nbsp;</p>
+                                            <p>&nbsp;</p>
+                                            <h3>Create Drop Rule</h3>
+                                            <p>&nbsp;</p>
+                                            <Form>
+                                                <TextField label="NRQL" />
+                                                <TextField label="Description" />
+                                                <Button type={Button.TYPE.PRIMARY}>Create Drop Rule</Button>
+                                            </Form>
                                         </>
                                     )
                                 }}
