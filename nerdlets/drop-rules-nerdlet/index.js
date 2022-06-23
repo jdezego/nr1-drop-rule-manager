@@ -6,8 +6,8 @@ export default class DropRules extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            nrql: "",
-            description: ""
+            nrql: null,
+            description: null
         }
     }
 
