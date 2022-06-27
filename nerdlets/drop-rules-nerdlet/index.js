@@ -46,10 +46,12 @@ export default class DropRules extends React.Component {
                                         return <h2>Choose an account from the drop-down list.</h2>
                                     }
 
-                                    // No rules found if length of rules array is zero.
-                                    if (data.actor.account.nrqlDropRules.list.rules.length == 0) {
-                                        return <h2>No rules found.</h2>
-                                    }
+                                    //No rules found if length of rules array is zero.
+                                    // if (data.actor.account.nrqlDropRules.list.rules.length == 0) {
+                                    //      return false
+                                    //      return <h2>No rules found.</h2>
+
+                                    // }
 
                                     let rules = data.actor.account.nrqlDropRules.list.rules.map(rule => ({
                                         id: rule.id,
@@ -83,6 +85,7 @@ export default class DropRules extends React.Component {
                                             </Table>
                                             <p>&nbsp;</p>
                                             <hr />
+                                            {data.actor.account.nrqlDropRules.list.rules.length == 0 && <h2>No rules found.</h2>}
                                             <p>&nbsp;</p>
                                             <p>&nbsp;</p>
                                             <h3>Create Drop Rule</h3>
