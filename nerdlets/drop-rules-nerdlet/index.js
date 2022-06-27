@@ -18,7 +18,7 @@ export default class DropRules extends React.Component {
         })
     }
 
-    tableClickActions(refetch, accountId) {
+    tableClickActions(accountId, refetch) {
         return [
             {
                 label: 'Delete Drop Rule',
@@ -46,13 +46,6 @@ export default class DropRules extends React.Component {
                                         return <h2>Choose an account from the drop-down list.</h2>
                                     }
 
-                                    //No rules found if length of rules array is zero.
-                                    // if (data.actor.account.nrqlDropRules.list.rules.length == 0) {
-                                    //      return false
-                                    //      return <h2>No rules found.</h2>
-
-                                    // }
-
                                     let rules = data.actor.account.nrqlDropRules.list.rules.map(rule => ({
                                         id: rule.id,
                                         Rule: rule.nrql,
@@ -76,7 +69,7 @@ export default class DropRules extends React.Component {
                                                 </TableHeader>
 
                                                 {({ item }) => (
-                                                <TableRow actions={this.tableClickActions(refetch, platformState.accountId)}>
+                                                <TableRow actions={this.tableClickActions(platformState.accountId, refetch)}>
                                                     <TableRowCell>{item.Rule}</TableRowCell>
                                                     <TableRowCell>{item.Description}</TableRowCell>
                                                     <TableRowCell>{item.Creator}</TableRowCell>
