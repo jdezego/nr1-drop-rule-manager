@@ -90,7 +90,7 @@ export default class DropRules extends React.Component {
                                             <Form>
                                                 <TextField label="NRQL" onChange={event => {this.setState({ nrql: event.target.value })}} />
                                                 <TextField label="Description" onChange={event => {this.setState({ description: event.target.value })}} />
-                                                <Button type={Button.TYPE.PRIMARY} onClick={() => CreateDropRule(platformState.accountId, this.state.description, this.state.nrql).then(refetch)}>Create Drop Rule</Button>
+                                                <Button type={Button.TYPE.PRIMARY} onClick={() => CreateDropRule(platformState.accountId, this.state.description, this.state.nrql, refetch)}>Create Drop Rule</Button>
                                             </Form>
                                         </>
                                     )
