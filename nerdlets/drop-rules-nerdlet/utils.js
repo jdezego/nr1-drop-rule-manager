@@ -1,4 +1,4 @@
-import { NerdGraphMutation } from 'nr1'
+import { NerdGraphMutation, Toast } from 'nr1'
 
 export function ListDropRules(accountId) {  
   const query = `{
@@ -42,6 +42,14 @@ export function DeleteDropRule(accountId, ruleIds) {
 // successes array will contain the ID of the newly created rule if successful.
 // failures array should be empty.
 export function CreateDropRule(accountId, description, NRQL) {
+  if (!description || !NRQL) {
+    Toast.showToast({
+      title: 'Error',
+      description: 'All fields must be filled in.',
+      type: Toast.TYPE.CRITICAL,
+    })
+    return false
+  }
     const query = `mutation {
         nrqlDropRulesCreate(accountId: ${accountId}, rules: {action: DROP_DATA, description: "${description}", nrql: "${NRQL}"}) {
           failures {
