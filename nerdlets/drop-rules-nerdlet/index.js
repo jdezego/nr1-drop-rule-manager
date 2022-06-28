@@ -1,6 +1,7 @@
 import React from "react"
 import { NerdGraphQuery, Spinner, Button, Form, TextField, nerdlet, PlatformStateContext, Table, TableHeader, TableHeaderCell, TableRow, TableRowCell } from "nr1"
 import { CreateDropRule, DeleteDropRule, ListDropRules } from "./utils"
+import './styles.scss'
 
 export default class DropRules extends React.Component {
     constructor(props) {
@@ -42,6 +43,11 @@ export default class DropRules extends React.Component {
     }
 
     render() {
+        const bigTextBox = {
+            width: "600px",
+            fontSize: 30
+          }
+
         return (
             <PlatformStateContext.Consumer>
                 {(platformState) => {
@@ -99,6 +105,13 @@ export default class DropRules extends React.Component {
                                                 <TextField label="Description" onChange={event => {this.setState({ description: event.target.value })}} />
                                                 <Button type={Button.TYPE.PRIMARY} onClick={() => CreateDropRule(platformState.accountId, this.state.description, this.state.nrql, refetch, this.resetState)}>Create Drop Rule</Button>
                                             </Form>
+                                            NRQL<br />
+                                            <input type="text" style={bigTextBox} onChange={event => {this.setState({ nrql: event.target.value })}}></input>
+                                            <br /><br />
+                                            Description<br />
+                                            <input type="text" style={bigTextBox} onChange={event => {this.setState({ description: event.target.value })}}></input>
+                                            <br /><br />
+                                            <button onClick={() => CreateDropRule(platformState.accountId, this.state.description, this.state.nrql, refetch, this.resetState)}>Create Drop Rule</button>
                                         </>
                                     )
                                 }}
