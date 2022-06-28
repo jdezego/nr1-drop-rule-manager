@@ -43,9 +43,9 @@ export default class DropRules extends React.Component {
 
     render() {
         const bigTextBox = {
-            width: "600px",
+            width: "700px",
             fontSize: 30
-          }
+        }
 
         return (
             <PlatformStateContext.Consumer>
