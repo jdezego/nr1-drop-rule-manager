@@ -41,7 +41,7 @@ export function DeleteDropRule(accountId, ruleIds) {
 
 // successes array will contain the ID of the newly created rule if successful.
 // failures array should be empty.
-export function CreateDropRule(accountId, description, NRQL, refetch) {
+export function CreateDropRule(accountId, description, NRQL, refetch, resetState) {
   if (!description || !NRQL) {
     Toast.showToast({
       title: 'Error',
@@ -62,5 +62,6 @@ export function CreateDropRule(accountId, description, NRQL, refetch) {
           }
         }
       }`
+      resetState()
       return NerdGraphMutation.mutate({mutation: query}).then(refetch)
 }

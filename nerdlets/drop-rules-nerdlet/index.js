@@ -9,6 +9,17 @@ export default class DropRules extends React.Component {
             nrql: null,
             description: null
         }
+        
+        // have to bind the resetState method to "this"
+        // so i can pass it to CreateDropRule and call it from utils.js
+        this.resetState = this.resetState.bind(this)
+    }
+
+    resetState() {
+        this.setState({
+            nrql: null,
+            description: null
+        })
     }
 
     componentDidMount() {
@@ -86,7 +97,7 @@ export default class DropRules extends React.Component {
                                             <Form>
                                                 <TextField label="NRQL" onChange={event => {this.setState({ nrql: event.target.value })}} />
                                                 <TextField label="Description" onChange={event => {this.setState({ description: event.target.value })}} />
-                                                <Button type={Button.TYPE.PRIMARY} onClick={() => CreateDropRule(platformState.accountId, this.state.description, this.state.nrql, refetch)}>Create Drop Rule</Button>
+                                                <Button type={Button.TYPE.PRIMARY} onClick={() => CreateDropRule(platformState.accountId, this.state.description, this.state.nrql, refetch, this.resetState)}>Create Drop Rule</Button>
                                             </Form>
                                         </>
                                     )
