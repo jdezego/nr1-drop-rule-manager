@@ -1,7 +1,6 @@
 import React from "react"
 import { NerdGraphQuery, Spinner, Button, Form, TextField, nerdlet, PlatformStateContext, Table, TableHeader, TableHeaderCell, TableRow, TableRowCell } from "nr1"
 import { CreateDropRule, DeleteDropRule, ListDropRules } from "./utils"
-import './styles.scss'
 
 export default class DropRules extends React.Component {
     constructor(props) {
