@@ -100,18 +100,18 @@ export default class DropRules extends React.Component {
                                             <p>&nbsp;</p>
                                             <h3>Create Drop Rule</h3>
                                             <p>&nbsp;</p>
-                                            {/* <Form>
-                                                <TextField label="NRQL" onChange={event => {this.setState({ nrql: event.target.value })}} />
-                                                <TextField label="Description" onChange={event => {this.setState({ description: event.target.value })}} />
+                                            <Form>
+                                                <TextField style={styles.bigTextBox} label="NRQL" onChange={event => {this.setState({ nrql: event.target.value })}} />
+                                                <TextField style={styles.bigTextBox} label="Description" onChange={event => {this.setState({ description: event.target.value })}} />
                                                 <Button type={Button.TYPE.PRIMARY} onClick={() => CreateDropRule(platformState.accountId, this.state.description, this.state.nrql, refetch, this.resetState)}>Create Drop Rule</Button>
-                                            </Form> */}
-                                            NRQL<br />
+                                            </Form>
+                                            {/* NRQL<br />
                                             <input type="text" style={styles.bigTextBox} onChange={event => {this.setState({ nrql: event.target.value })}}></input>
                                             <br /><br />
                                             Description<br />
                                             <input type="text" style={styles.bigTextBox} onChange={event => {this.setState({ description: event.target.value })}}></input>
                                             <br /><br />
-                                            <button onClick={() => CreateDropRule(platformState.accountId, this.state.description, this.state.nrql, refetch, this.resetState)}>Create Drop Rule</button>
+                                            <button onClick={() => CreateDropRule(platformState.accountId, this.state.description, this.state.nrql, refetch, this.resetState)}>Create Drop Rule</button> */}
                                         </>
                                     )
                                 }}
