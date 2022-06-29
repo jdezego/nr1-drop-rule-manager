@@ -10,8 +10,6 @@ export default class DropRules extends React.Component {
             description: null
         }
         
-        // have to bind the resetState method to "this"
-        // so i can pass it to CreateDropRule and call it from utils.js
         this.resetState = this.resetState.bind(this)
     }
 
@@ -42,9 +40,12 @@ export default class DropRules extends React.Component {
     }
 
     render() {
-        const bigTextBox = {
-            width: "700px",
-            fontSize: 30
+        const styles = {
+            bigTextBox: {
+                width: "700px",
+                fontSize: 20,
+                lineHeight: "35px"
+            }
         }
 
         return (
@@ -99,16 +100,16 @@ export default class DropRules extends React.Component {
                                             <p>&nbsp;</p>
                                             <h3>Create Drop Rule</h3>
                                             <p>&nbsp;</p>
-                                            <Form>
+                                            {/* <Form>
                                                 <TextField label="NRQL" onChange={event => {this.setState({ nrql: event.target.value })}} />
                                                 <TextField label="Description" onChange={event => {this.setState({ description: event.target.value })}} />
                                                 <Button type={Button.TYPE.PRIMARY} onClick={() => CreateDropRule(platformState.accountId, this.state.description, this.state.nrql, refetch, this.resetState)}>Create Drop Rule</Button>
-                                            </Form>
+                                            </Form> */}
                                             NRQL<br />
-                                            <input type="text" style={bigTextBox} onChange={event => {this.setState({ nrql: event.target.value })}}></input>
+                                            <input type="text" style={styles.bigTextBox} onChange={event => {this.setState({ nrql: event.target.value })}}></input>
                                             <br /><br />
                                             Description<br />
-                                            <input type="text" style={bigTextBox} onChange={event => {this.setState({ description: event.target.value })}}></input>
+                                            <input type="text" style={styles.bigTextBox} onChange={event => {this.setState({ description: event.target.value })}}></input>
                                             <br /><br />
                                             <button onClick={() => CreateDropRule(platformState.accountId, this.state.description, this.state.nrql, refetch, this.resetState)}>Create Drop Rule</button>
                                         </>
