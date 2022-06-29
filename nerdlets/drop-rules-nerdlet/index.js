@@ -1,5 +1,5 @@
 import React from "react"
-import { NerdGraphQuery, Spinner, Button, Form, TextField, nerdlet, PlatformStateContext, Table, TableHeader, TableHeaderCell, TableRow, TableRowCell } from "nr1"
+import { AccountsQuery, NerdGraphQuery, Spinner, Button, Form, TextField, nerdlet, PlatformStateContext, Table, TableHeader, TableHeaderCell, TableRow, TableRowCell } from "nr1"
 import { CreateDropRule, DeleteDropRule, ListDropRules } from "./utils"
 
 export default class DropRules extends React.Component {
@@ -21,6 +21,10 @@ export default class DropRules extends React.Component {
     }
 
     componentDidMount() {
+        // if i decide i need the accountId of the logged in user,
+        // as opposed to the id of the account selected in the dropdown list, i can do this:
+        // AccountsQuery.query().then(({ data }) => this.setState({accountId: data[0].id}))
+
         nerdlet.setConfig({
             accountPicker: true,
             timePicker: false,
