@@ -62,6 +62,11 @@ export function CreateDropRule(accountId, description, NRQL, refetch, resetState
           }
         }
       }`
+      Toast.showToast({
+        title: 'Success',
+        description: 'Drop rule created.',
+        type: Toast.TYPE.NORMAL,
+      })
       resetState()
       return NerdGraphMutation.mutate({mutation: query}).then(refetch)
 }
