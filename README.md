@@ -22,10 +22,18 @@ npm start
 
 4. Visit the onenr.io URL in the console output under Launchers: drop-rules-launcher
 
-## Deploying to a New Relic account
+## Deploy to a New Relic account
 
 Open a command prompt in the nerdpack's directory and run the following commands.
 
 ```bash
 nr1 nerdpack:publish
 nr1 subscription:set
+```
+
+## Undeploy
+
+```bash
+nr1 subscription:unset
+nr1 nerdpack:undeploy
+```
