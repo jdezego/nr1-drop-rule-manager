@@ -1,4 +1,4 @@
-# nr1-drop-rules-manager
+# nr1-drop-rule-manager
 
 ## Run locally
 
@@ -14,13 +14,13 @@ npm -v
 3. Clone this repository and then:
 
 ```bash
-cd nr1-drop-rules-manager
+cd nr1-drop-rule-manager
 npm install
 nr1 nerdpack:uuid -gf
 npm start
 ```
 
-4. Visit the onenr.io URL in the console output under Launchers: drop-rules-manager-launcher
+4. Visit the onenr.io URL in the console output under Launchers: drop-rule-manager-launcher
 
 ## Deploy to a New Relic account
 

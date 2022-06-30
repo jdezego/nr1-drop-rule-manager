@@ -1,7 +1,7 @@
 {
   "schemaType": "LAUNCHER",
-  "id": "drop-rules-manager-launcher",
+  "id": "drop-rule-manager-launcher",
   "displayName": "Drop Rules",
   "description": "Allows you to view/create/delete drop rules.",
-  "rootNerdletId": "drop-rules-manager-nerdlet"
+  "rootNerdletId": "drop-rule-manager-nerdlet"
 }
