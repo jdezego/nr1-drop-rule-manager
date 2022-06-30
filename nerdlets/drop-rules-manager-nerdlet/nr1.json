@@ -1,6 +1,6 @@
 {
   "schemaType": "NERDLET",
-  "id": "drop-rules-nerdlet",
+  "id": "drop-rules-manager-nerdlet",
   "displayName": "Drop Rules",
   "description": "Allows you to view/create/delete drop rules."
 }
