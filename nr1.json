@@ -1,6 +1,6 @@
 {
   "schemaType": "NERDPACK",
   "id": "4f0ddc3d-e870-48e0-89d9-45640b81c42e",
-  "displayName": "Drop Rules",
+  "displayName": "Drop Rule Manager",
   "description": "Allows you to view/create/delete drop rules."
 }
