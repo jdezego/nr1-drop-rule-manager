@@ -17,18 +17,32 @@
 ![GitHub pull requests closed](https://img.shields.io/github/issues-pr-closed/jdezego/nr1-drop-rule-manager)
 
 
-Allows you to view the drop rules in your account.
+Allows you to view/create/delete drop rules.
 
 ## Installation
 
 - Clone repo then:
+- `cd nr1-drop-rule-manager`
 - `npm install`
 - `nr1 nerdpack:uuid -gf`
-- `nr1 nerdpack:serve`
+- `npm start`
+- `Visit the onenr.io URL in the console output under Launchers: drop-rule-manager-launcher`
 
-## Getting Started
+## Deploy to a New Relic account
 
-There is nothing to configure.
+Open a command prompt in the nerdpack's directory and run the following commands.
+
+```bash
+nr1 nerdpack:publish
+nr1 subscription:set
+```
+
+## Undeploy
+
+```bash
+nr1 subscription:unset
+nr1 nerdpack:undeploy
+```
 
 ## Support
 
