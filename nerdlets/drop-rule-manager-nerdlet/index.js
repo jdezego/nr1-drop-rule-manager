@@ -99,7 +99,7 @@ export default class DropRules extends React.Component {
                                             </Table>
                                             <p>&nbsp;</p>
                                             <hr />
-                                            {data.actor.account.nrqlDropRules.list.rules.length == 0 && <h2>No rules found.</h2>}
+                                            {data.actor.account.nrqlDropRules.list.rules.length == 0 && <h2>No rules found for account {platformState.accountId}</h2>}
                                             <p>&nbsp;</p>
                                             <p>&nbsp;</p>
                                             <h3>Create Drop Rule</h3>
